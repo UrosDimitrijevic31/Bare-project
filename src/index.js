@@ -10,7 +10,7 @@ console.log('Hello by js');
 console.log('Hello world');
 
 document.getElementById('app').innerHTML = '<p>Hello to BootcampPizza by JavaScript Basics</p>';
-
+console.log('dobar dan');
 const app = document.getElementById('app');
 // app.innerHTML = '<p>Hello to BootcampPizza by JavaScript Basics</p>';
 document.getElementById('<p>hello to bootcampPizza from JavaScript!</p>');
