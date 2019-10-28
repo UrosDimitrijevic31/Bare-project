@@ -4,10 +4,20 @@ app.innerHTML = '<p>Hello to bootcamp Pizza</p>';
 console.log(app);
 
 //-------------DODAVANJE IKONICA-----------------------------------------------
+
+var facebook_url = 'https://www.facebook.com';
+var youtube_url = 'https://www.youtube.com';
+var twitter_url = 'https://www.twitter.com';
+
+
+var facebook_icon_path = 'assets/images/fb_ico.png';
+var youtube_icon_path = 'assets/images/yt.png';
+var twwiter_icon_path = 'assets/images/tw.png';
+
 const social = document.getElementById('social');
-social.innerHTML = '<a href="https://www.facebook.com" target="_blank"><img class ="social-icon" src="assets/images/fb_ico.png" /></a>';
-social.innerHTML += '<a href="https://www.youtube.com" target="_blank"><img class ="social-icon" src="assets/images/yt.png" /></a>'
-social.innerHTML += '<a href="https://www.twitter.com" target="_blank"><img class ="social-icon" src="assets/images/tw.png" /></a>'
+social.innerHTML = `<a href="${facebook_url}" target="_blank"><img class ="social-icon" src="${facebook_icon_path}" /></a>`;
+social.innerHTML += `<a href="${youtube_url}" target="_blank"><img class ="social-icon" src="${youtube_icon_path}" /></a>`
+social.innerHTML += `<a href="${twitter_url}" target="_blank"><img class ="social-icon" src="${twwiter_icon_path}" /></a>`
 social.innerHTML += '<a href="https://www.instagram.com" target="_blank"><img class ="social-icon" src="assets/images/insta.png" /></a>'
 
 
@@ -104,6 +114,87 @@ console.log(z);
     }
 }
 */
+
+/* 5. dan */
+
+var name = 'Bootcamp Pizza';
+var address = 'Bulevar kralja Aleksandra';
+var streetNumber = 73;
+var postalCode = 11000;
+var city = 'Belgrade';
+var country = 'Republic of Serbia';
+var phoneNumber = '+381(0)64-12-34-567';
+
+const storeNameContainer = document.getElementById('store-name');
+storeNameContainer.innerHTML = name;
+
+const storeAdressContainer = document.getElementById('store-adress');
+storeAdressContainer.innerHTML = `<p>${address} ${streetNumber}, ${postalCode} ${city}<br/>${country}</p>Phone: ${phoneNumber} `;
+
+var radius = 16; 
+//var pizzaSurface = radius * radius * 3.14;
+//var pizzaSurface = radius * radius * Math.PI;
+var pizzaSurface = Math.pow(radius, 2)*Math.PI;
+console.log(`Pizza surface is ${Math.round(pizzaSurface)} cm²`);
+
+//izracunati imamo poluprecnik pice izracunati duzinu korice ako se deli na n delova 2rP
+var cutNumber = 1;
+var sliceNumber = (2*radius*Math.PI)/(cutNumber*2); //obim korice parceta u zavisnosti od broja preseka
+var sliceNumber1 = (2*radius*Math.PI)/(cutNumber*2) + 2*radius; //obim celog parceta u zavisnosti od broja preseka
+var sliceNumber2 = cutNumber * 2;  // broj parcica
+console.log(Math.round(sliceNumber));
+console.log(Math.round(sliceNumber1));
+console.log(Math.round(sliceNumber2));
+
+//date and time -----------------------------------
+
+//PAZNJA KORISTICEMO KASNIJE
+{
+    let dateTimeNow = new Date();
+    console.log(dateTimeNow);
+
+    let hours = dateTimeNow.getHours();
+    let minutes = dateTimeNow.getMinutes();
+    let seconds = dateTimeNow.getSeconds();
+    let timeStampString = `${hours}:${minutes}:${seconds}`;
+    console.log(timeStampString);
+    //za danasnji datum
+    console.log(dateTimeNow.getDay());
+
+    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    // drugi nacin, bzvz let totalSeconds = (hours * 60 + minutes) * 60 + seconds;
+
+    console.log(`Total number of seconds today is ${totalSeconds}`)
+    //posatvicemo datum na neki dan koji ej nedelja
+    //dateTimeNow.setDate(27);
+    //console.log(dateTimeNow.getDay());
+
+    //napisati datum u sl formatu dd-mm-yyyy [{date} - time]
+    let dateDay = dateTimeNow.getDate(); //dan u mesecu a day je dan u nedelji
+    let month = dateTimeNow.getMonth()+1;
+    let year = dateTimeNow.getFullYear();
+    let dateStampString = `${dateDay}-${month}-${year}`;
+    console.log(dateStampString);
+    //moze i ovako
+    //console.log(`[{${dateStampString}} - ${timeStampString}`);
+    //i ovako
+    console.log("[{" + dateStampString+ " } - " + timeStampString +"]");
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
