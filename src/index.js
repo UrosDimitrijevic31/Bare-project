@@ -180,8 +180,112 @@ console.log(Math.round(sliceNumber2));
     //i ovako
     console.log("[{" + dateStampString+ " } - " + timeStampString +"]");
 
-
 }
+
+//------------------------------------- 5. DAN -------------------------------------------
+
+{
+    let b;
+    b = 4;
+    if(b>3) console.log(`${b} je vece od 3`);
+    else console.error(`${b} nije vece od 3`); //izbaci error
+
+    console.warn('ovo je mnogo strava kod');  //kul stvar
+
+    if(b % 2 == 0) console.log(`broj ${b}  je paran ! !`);
+    else console.log(`broj ${b} je neparan ! !`);
+
+    let discountDay = 2;
+    let dateTimeNow = new Date();
+
+    let dayInWeek = dateTimeNow.getDay();
+
+    let capricciosa = 120 ;
+    let pizzaCount = 5;
+    let discountSize = 0.1;//10%
+    let finalPrice = pizzaCount * capricciosa;
+
+    if(dayInWeek === discountDay ) {
+        // finalPrice = (1-discountSize) * capricciosa;
+        finalPrice *= 1-discountSize;
+    }
+    console.log(`Price for ${pizzaCount} pizzas is ${finalPrice}`);
+
+    let dayInWeekString;
+    switch (dayInWeek) {
+        case 0: dayInWeekString = "Sunday";
+        break;
+        case 1: dayInWeekString = "Monday";
+        break;
+        case 2: dayInWeekString = "Thusday";
+        break;
+        case 3: dayInWeekString = "Wednesday";
+        break;
+        case 4: dayInWeekString = "SThursday";
+        break;
+        case 5: dayInWeekString = "Friday";
+        break;
+        case 6: dayInWeekString = "Saturday";
+        break;
+        default: 
+            console.error(`Unknown day ${dayInWeek}`);
+            dayInWeekString = "Error";
+            break;       
+    }
+
+    //let dateDay = dateTimeNow.getDate(); //dan u mesecu a day je dan u nedelji
+   
+    //let year = dateTimeNow.getFullYear();
+    //let dateStampString = `${dateDay}-${month}-${year}`;
+
+    let hours = dateTimeNow.getHours();
+    let minutes = dateTimeNow.getMinutes();
+    let seconds = dateTimeNow.getSeconds();
+    let month = dateTimeNow.getMonth();
+    let year = dateTimeNow.getFullYear();
+    let date = dateTimeNow.getDate();
+    let timeStampString = `${hours}:${minutes}:${seconds}`;
+    console.log(timeStampString);
+
+    let monthString;
+    switch (month) {
+        case 0: monthString = "January";
+        break;
+        case 1: monthString = "February";
+        break;
+        case 2: monthString = "Marth";
+        break;
+        case 3: monthString = "April";
+        break;
+        case 4: monthString = "May";
+        break;
+        case 5: monthString = "June";
+        break;
+        case 6: monthString = "July";
+        break;
+        case 7: monthString = "Avgust";
+        break;
+        case 8: monthString = "September";
+        break;
+        case 9: monthString = "October";
+        break;
+        case 10: monthString = "November";
+        break;
+        case 11: monthString = "December";
+        break      
+        default: 
+            console.error(`Unknown day ${month}`);
+            monthString = "Error";
+            break;       
+    }
+    
+    
+ 
+
+    app.innerHTML += `<p>Today is ${dayInWeekString}, ${date} - ${monthString} - ${year}, Current time: <span>${timeStampString}</span></p>`;
+}
+
+
 
 
 
