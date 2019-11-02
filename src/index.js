@@ -278,17 +278,17 @@ console.log(Math.round(sliceNumber2));
             monthString = "Error";
             break;       
     }
-    
-    
- 
-
+  
     app.innerHTML += `<p>Today is ${dayInWeekString}, ${date} - ${monthString} - ${year}, Current time: <span>${timeStampString}</span></p>`;
 }
 
+//css za conzolu :D :D :D :D--------------------
+console.log(
+    "%cHELLO FROM BOOTCAMP!",
+    "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold"
+  );
 
-
-
-
+  console.log('%cUROS  ', 'color:blue; font-size:4rem; border:3px solid black', );
 
 
 
