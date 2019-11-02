@@ -221,7 +221,7 @@ console.log(Math.round(sliceNumber2));
         break;
         case 3: dayInWeekString = "Wednesday";
         break;
-        case 4: dayInWeekString = "SThursday";
+        case 4: dayInWeekString = "Thursday";
         break;
         case 5: dayInWeekString = "Friday";
         break;
