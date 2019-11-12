@@ -215,7 +215,7 @@ for(var i=0; i<m; i++) {
     }
     console.log(s);
 }
-*/
+
 
 let n = 4;
 let poklopac = '*'.repeat(n);
@@ -227,3 +227,15 @@ for(let i=1;i<=n-2;i++){
 }
 console.log(poklopac);
 
+
+var n= 7;
+
+//var sum=' ';
+for (let i=1; i<=n ;i++) {
+    let b = '';
+   for(let j=1; j<=i; j++){
+       b += 2*j+ ' ';
+   }
+   console.log(b);
+}
+*/

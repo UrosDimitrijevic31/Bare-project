@@ -290,6 +290,275 @@ console.log(
 
   console.log('%cUROS  ', 'color:blue; font-size:4rem; border:3px solid black', );
 
+function helloworld() {
+    console.log('Hello World');
+}
+
+console.log('Pre poziva funkcije');
+
+helloworld();
+
+console.log(`posle poziva funckije`);
+
+function logMessage(message){
+    console.log(`${message}`);            
+}
+
+
+{
+    let poruka = `Danas je suncan dan`;    
+    logMessage(poruka+1);
+    logMessage('Batman!');
+
+}
+
+    function add(a, b){
+        return  a+b;
+}
+
+    console.log(add(10,5));
+ 
+{
+ 
+    function datum(brojDana) {      
+        switch (brojDana) {
+            case 0: return "Sunday";
+            case 1: return "Monday";
+            case 2: return "Thusday";
+            case 3: return "Wednesday";
+            case 4: return "Thursday";       
+            case 5: return "Friday";      
+            case 6: return "Saturday";        
+            default: 
+                return console.error(`Unknown day ${brojDana}`);
+        }
+    }
+    console.log(`Today is ${datum(5)}`);
+    //funkcija koja proverava parne dane
+ }
+ 
+    
+    function logMessageTimeStamp(message) {
+        let dateTimeNow = new Date(); 
+        console.log(`${dateTimeNow.getHours()}:${dateTimeNow.getMinutes()}:${dateTimeNow.getSeconds()} - ${message}`);
+    }
+    logMessageTimeStamp('ovo je poruka');
+
+ 
+
+
+    let array = new Array();
+    array.push(10);
+    console.log(array);
+    array.push('abc'); //dodaje na kraj niza
+    console.log(array);
+    array.unshift('start'); //dodaje na pocetak, ispred svih
+    console.log(array);
+    array[0] = 'Dobar dan'; //pregazi prvi element
+    console.log(array);
+    let nizb = [1,2,3];
+    console.log(nizb); 
+    //array.push(nizb); //moze i da doda niz 
+    let nizc = array.concat(nizb);
+    console.log(nizc);
+    console.log(nizc.length);
+    for(let i=0;i<nizc.length;i++){
+        logMessageTimeStamp(nizc[i]);
+    }    
+
+    let porudzbine = [120, 650, 340, 210];
+    //ubaciti porudzbine od 250 din
+    porudzbine.push(250);
+
+    //nakon toga ispisati sve porudzbine
+    console.log(porudzbine);
+
+    //potrebno da se ispisu porudzbine vece od 300 din
+
+    /*1. nacin
+    for(let i=0;i<porudzbine.length;i++){
+        if(porudzbine[i] > 300) console.log(porudzbine[i]);
+    }*/
+
+    /* 2. nacin
+    for(let element of porudzbine){
+        if(element > 300){
+            console.log(element);
+        }
+    }*/
+
+    /* 3. nacin
+    porudzbine.forEach(element => {
+        if(element > 300){
+            console.log(element);
+        }
+    });
+    */
+  /*
+    let max;
+    for(let element of porudzbine){
+        max = Math.max(max, element);
+    }
+    console.log(max);
+
+    console.log(Math.max(...porudzbine));
+
+    let niz1 = [1,2,3];
+    let niz2 = [4,5,6];
+    niz1.push(...niz2);
+*/
+
+const orderBtnClassName = '.order-btn';
+//const orderButtons = document.getElementsByClassName(orderBtnClassName);
+const orderButtons = document.querySelectorAll(orderBtnClassName);
+console.log(orderButtons);
+// for(let button in orderButtons){
+//     console.log(button);
+// }//NE
+const cart = document.querySelector('#cart');
+
+const cartPop = document.querySelector('#cart-pop');
+const pizzaCounterBadge = document.querySelector('#counter');
+cartPop.style.display = 'none';
+let isCartVisible = false;
+var pizzaCount = 0;
+
+
+function changeCartPopDisplay() {
+    //cartPop.style.display=isCartVisible?'none':'block';
+    if (isCartVisible) {
+        cartPop.style.display = 'none';
+        //cart.style.color='#FFFFFF';
+    } else {
+        cartPop.style.display = 'block';
+
+        //cart.style.color='#ffff00';
+    }
+    isCartVisible = !isCartVisible;
+
+}
+
+ cart.addEventListener('click', changeCartPopDisplay);
+
+
+// let nesto=document.querySelector('#abc');
+// let podatak=nesto.getAttribute('value');
+// console.log(podatak)
+
+// let object = document.querySelector('#abc');
+// object.addEventListener('change', function () {
+//      changeMe(object);
+//      });
+
+// function changeMe(element) {
+//     let paragraph = document.querySelector('#par');
+//     paragraph.innerHTML = element.getAttribute('value');
+// }
+
+/*for (let button of orderButtons) {
+    button.addEventListener('click', function () {
+        selectPizza(button);
+    });
+}*/
+
+orderButtons.forEach(button => {
+    button.addEventListener('click', function () {
+        selectPizza(button);
+    });
+});
+//Zapamtiti
+function selectPizza(element) {
+    console.log(element);
+    pizzaCount++;
+    pizzaCounterBadge.innerHTML = pizzaCount;
+}
+
+//--------------------------- 12.dan OBJEKTI --------------------------------------
+{
+    let osoba =
+    {
+        name: 'Mirko',
+        age: 18,
+        money: 175,
+        nicknames:['Micko', 'Mire', 'Miki']
+    }
+
+    let osobe = [
+        {
+            name: 'Jovan',
+            age: 17,
+            money: 165        
+        },
+        {
+            name: 'Sima',
+            age: 19,
+            money: 200        
+        },
+        osoba
+    ]
+    console.log(osoba);
+    console.log(osobe);
+
+    let persona = {
+        name: 'Milos',
+        surname: 'Markovic'
+    }
+    console.log(persona.name);
+    persona.name = 'Marko';
+
+    console.log(`zovem se ${persona.name} a prezivam se ${persona.surname}`);
+    console.log(osobe[0].name);
+
+    osobe.forEach(element => {
+        if(element.age>=18) {
+            console.log(element);
+        }
+    })
+    persona.age = 20; //kreiranje tog polja
+
+//opisuje jednu stavku porudzbine
+//napraviti objekar koji opisuje jednu porudzbinu potrebnoi je da sadrzi id pice, naziv pice, velicinu, kolicinu, cenu jednog komada
+//nakon toga napsiati funkciju koja za poslatu picu vraca podatak o ukupnoj ceni jedne stavke porudzbine
+//i tu vrednost dodaje u objekat stavke porudzbine
+
+    let order = {
+        id: 1,
+        name: 'Margarita',
+        size: 'XL',
+        quantity: 5,
+        price: 400 
+    }
+    let discountDay1 = 2;
+    let discount = 0.1;
+    let dayToday = new Date();
+    function totalPrice(stavka){
+        if(dayToday.getDay() == discountDay1) {
+            return stavka.totalPrice = stavka.quantity * stavka.price*(1-discount);
+        }
+        else {
+            return stavka.totalPrice = stavka.quantity * stavka.pricel;
+        }
+    }
+
+    console.log(`Cena jedne pice je ${order.price}, a vi se narucili ${order.quantity}, ukupan racun iznosi ${totalPrice(order)}`);
+
+    //---------------upotreba THIS --------------------------------------------------------------    
+    order.izracunajUkupnuCenu = function() {
+        return this.price * this.quantity
+    }
+
+    console.log(order.izracunajUkupnuCenu());
+
+    console.log(osoba);
+    let osobaString = JSON.stringify(osoba); //PRETVARANJE OBJEKTA U STRING, i u JAVI isto
+    console.log(osobaString);
+
+    let poruka = '{"naslov":"dobar dan", "telo":"Telo vreteno"}';
+    console.log(poruka);
+    let porukaObjekat = JSON.parse(poruka);
+    console.log(porukaObjekat);
+
+}
 
 
 
