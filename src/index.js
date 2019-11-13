@@ -408,37 +408,41 @@ function logMessage(message){
     niz1.push(...niz2);
 */
 
-const orderBtnClassName = '.order-btn';
-//const orderButtons = document.getElementsByClassName(orderBtnClassName);
+// -------------------------------11. DAN -------------------------------------------------------------
+
+const orderBtnClassName = '.order-btn'; //class="order-btn" u HTML-u kod button-a
+//const orderButtons = document.getElementsByClassName(orderBtnClassName); 
 const orderButtons = document.querySelectorAll(orderBtnClassName);
 console.log(orderButtons);
+
 // for(let button in orderButtons){
 //     console.log(button);
-// }//NE
-const cart = document.querySelector('#cart');
+// }//NE, koristi se u drugim situacijama
 
-const cartPop = document.querySelector('#cart-pop');
+const cart = document.querySelector('#cart'); //cart je id celog diva ikonice kanta
+
+const cartPop = document.querySelector('#cart-pop'); //cart-pop je div koji se otvori kad stisnemo na kantu
 const pizzaCounterBadge = document.querySelector('#counter');
-cartPop.style.display = 'none';
-let isCartVisible = false;
+cartPop.style.display = 'none'; //gadjamo style tog diva, style.display, baratanje css-om pomocu JS
+let isCartVisible = false; //da li je vidljiv taj div, da bi mogla da se promeni vrednost
 var pizzaCount = 0;
 
 
 function changeCartPopDisplay() {
     //cartPop.style.display=isCartVisible?'none':'block';
-    if (isCartVisible) {
-        cartPop.style.display = 'none';
+    if (isCartVisible) { //true
+        cartPop.style.display = 'none'; //ne vidi se
         //cart.style.color='#FFFFFF';
-    } else {
-        cartPop.style.display = 'block';
-
+    } else { //false
+        cartPop.style.display = 'block'; //vidi se 
         //cart.style.color='#ffff00';
     }
-    isCartVisible = !isCartVisible;
+    isCartVisible = !isCartVisible; //pocetno je bilo false, sluzi da ako se ne vidi ukljuci ga, ako se vidi sakri ga
 
 }
 
  cart.addEventListener('click', changeCartPopDisplay);
+
 
 
 // let nesto=document.querySelector('#abc');
@@ -455,17 +459,18 @@ function changeCartPopDisplay() {
 //     paragraph.innerHTML = element.getAttribute('value');
 // }
 
-/*for (let button of orderButtons) {
+//svakom button-u dodamo funkciju, primer ANONIMNE FUNKCIJE
+for (let button of orderButtons) {
     button.addEventListener('click', function () {
         selectPizza(button);
     });
-}*/
-
+}
+/*
 orderButtons.forEach(button => {
     button.addEventListener('click', function () {
         selectPizza(button);
     });
-});
+});*/
 //Zapamtiti
 function selectPizza(element) {
     console.log(element);
@@ -555,7 +560,7 @@ function selectPizza(element) {
 
     let poruka = '{"naslov":"dobar dan", "telo":"Telo vreteno"}';
     console.log(poruka);
-    let porukaObjekat = JSON.parse(poruka);
+    let porukaObjekat = JSON.parse(poruka); // PRETVARAMO JSON(string) U OBJEKAT U JS
     console.log(porukaObjekat);
 
 }
